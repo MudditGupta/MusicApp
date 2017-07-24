@@ -182,9 +182,9 @@ function changeCurrentSongDetails(songObj)
 
 function addSongNameClickEvent(songObj, position) 
 {
-
+//song k satth position ko jodd diya jo pistion hai vo gana dispay hoga kyunki humnein yeh condition lagayi hai
     var songName = songObj.fileName;
-    var id = '#song' + position; //#song ke saath position ko jod do and agar position 1 hai to output #song1 hogi jisse id mein store kar diya
+    var id = '#song' + position; 
     $(id).click(function() 
         {
               Playingnumber= (position - 1)
@@ -200,8 +200,8 @@ function addSongNameClickEvent(songObj, position)
         });
 }
 
-
-function changeSong() //we have made a machine jispe 2 buttons diye hai songName and position ke liye
+// yeh humnein song ka naam or position change krnein k liye banaya hai
+function changeSong() 
 {
 var music =  songs[Playingnumber].fileName;
 var song = document.querySelector("audio");
@@ -212,16 +212,16 @@ changeCurrentSongDetails(songs[Playingnumber])
 window.onload = function() {
 
 
-
+// iss function se song ki postion change hoti rahegi jab hum click krte rahenge song ki postion bhi change hogi
     changeCurrentSongDetails(songs[0]);
 
-    for (var i = 0; i < songs.length; i++) //Var i zero se 3 tak chalana hai
+    for (var i = 0; i < songs.length; i++) 
 
     {
-        var obj = songs[i]; //Diary ke andar se page utha ke humne obj variable mein store kar diya
+        var obj = songs[i]; 
         var name = '#song' + (i + 1);
         var song = $(name);
-        song.find('.song-name').text(obj.name); //("song1 .songname")
+        song.find('.song-name').text(obj.name); 
         song.find('.song-artist').text(obj.artist);
         song.find('.song-album').text(obj.album);
         song.find('.song-length').text(obj.duration);
@@ -255,7 +255,7 @@ $(".fa-step-forward").click(function(){
 if(shuffle==1)
 {
       var audio = document.querySelector('audio');
-      var nextSongNumber = randomExcluded(0,3,Playingnumber); // Calling our function from Stackoverflow
+      var nextSongNumber = randomExcluded(0,3,Playingnumber); // yeh code stack overflow se liya hai
 
       var nextSongObj = songs[nextSongNumber];
       audio.src = nextSongObj.fileName;
@@ -312,15 +312,7 @@ changeSong();
 
 })
 
-// function shufflee(a) {
-//     var j, x, i;
-//     for (i = a.length; i; i--) {
-//         j = Math.floor(Math.random() * i);
-//         x = a[i - 1];
-//         a[i - 1] = a[j];
-//         a[j] = x;
-//     }
-// }
+// Yeh code suufle button k liye hai yisse hamare suffle buttom me life ayyegi
 
 
 
@@ -335,93 +327,6 @@ shuffle=1;
 else {
   shuffle=0;
 }
-// if(shuffle==0)
-// {
-// shuffle = 1;
-// shufflee(songs);
-// changeCurrentSongDetails(songs[0]);
-// song =document.querySelector("audio");
-// song.src = songs[0].fileName;
-// toggleSong();
-// Playingnumber=0;
-//
-//     for (var i = 0; i < songs.length; i++) //Var i zero se 3 tak chalana hai
-//
-//     {
-//         var obj = songs[i]; //Diary ke andar se page utha ke humne obj variable mein store kar diya
-//         var name = '#song' + (i + 1);
-//         var song = $(name);
-//         song.find('.song-name').text(obj.name); //("song1 .songname")
-//         song.find('.song-artist').text(obj.artist);
-//         song.find('.song-album').text(obj.album);
-//         song.find('.song-length').text(obj.duration);
-//         addSongNameClickEvent(obj, i + 1);
-//     }
-// }
-
-// else {
-//   shuffle = 0;
-//
-//    songs = [{
-//           'name': 'Badri Ki Dulhania (Title Track)',
-//           'artist': 'Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi',
-//           'album': 'Badrinath ki Dulhania',
-//           'duration': '2:56',
-//           'fileName': 'song1.mp3',
-//           'image': 'song1.jpg'
-//       },
-//       {
-//           'name': 'Humma Song',
-//           'artist': 'Badshah, Jubin Nautiyal, Shashaa Tirupati',
-//           'album': 'Ok Jaanu',
-//           'duration': '3:15',
-//           'fileName': 'song2.mp3',
-//           'image': 'song2.jpg'
-//       },
-//       {
-//           'name': 'Nashe Si Chadh Gayi',
-//           'artist': 'Arijit Singh',
-//           'album': 'Befikre',
-//           'duration': '2:34',
-//           'fileName': 'song3.mp3',
-//           'image': 'song3.jpg'
-//       },
-//       {
-//           'name': 'The Breakup Song',
-//           'artist': 'Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi',
-//           'album': 'Ae Dil Hai Mushkil',
-//           'duration': '2:29',
-//           'fileName': 'song4.mp3',
-//           'image': 'song4.jpg'
-//       }
-//   ]
-//
-//   changeCurrentSongDetails(songs[0]);
-//   song =document.querySelector("audio");
-//   song.src = songs[0].fileName;
-// toggleSong();
-// Playingnumber=0;
-//   for (var i = 0; i < songs.length; i++) //Var i zero se 3 tak chalana hai
-//
-//   {
-//       var obj = songs[i]; //Diary ke andar se page utha ke humne obj variable mein store kar diya
-//       var name = '#song' + (i + 1);
-//       var song = $(name);
-//       song.find('.song-name').text(obj.name); //("song1 .songname")
-//       song.find('.song-artist').text(obj.artist);
-//       song.find('.song-album').text(obj.album);
-//       song.find('.song-length').text(obj.duration);
-//       addSongNameClickEvent(obj, i + 1);
-//   }
-//
-//
-// }
-//
-
-
-
-
-
 })
 
 
@@ -453,7 +358,7 @@ function randomExcluded(min, max, excluded) {
 $('audio').on('ended',function() {
     var audio = document.querySelector('audio');
     if (shuffle == 1) {
-            var nextSongNumber = randomExcluded(0,3,Playingnumber); // Calling our function from Stackoverflow
+            var nextSongNumber = randomExcluded(0,3,Playingnumber); // yeh code stack overfow se liya hai suffling k liye
 console.log(nextSongNumber);
             console.log(nextSongNumber);
             var nextSongObj = songs[nextSongNumber];
@@ -467,9 +372,9 @@ console.log(nextSongNumber);
   console.log("hello2");
         var nextSongObj = songs[Playingnumber+1];
         audio.src = nextSongObj.fileName; // Change Soure
-        toggleSong(); // Play Next Song
-        changeCurrentSongDetails(nextSongObj); // Update Image
-        Playingnumber ++;// Change State
+        toggleSong(); // agla song play hoga iss function ki calling pe
+        changeCurrentSongDetails(nextSongObj); // next images aati rahengi
+        Playingnumber ++;// song ki possition change hoti rahegi
     }
     else if(loop == 1) {
   console.log("hello3");
